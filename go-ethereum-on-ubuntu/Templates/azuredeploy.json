@@ -125,7 +125,7 @@
       "dependsOn": [
         "[concat('Microsoft.Storage/storageAccounts/', variables('StorageAccountName'))]",
         "[concat('Microsoft.Network/networkInterfaces/', variables('VMNamePrefix'),variables('NICNamePrefix'), copyindex())]",
-        "[concat('Microsoft.Compute/availabilitySets/', variables('AvailabilitySetName'))]"
+        "[concat('Microsoft.Compute/availabilitySets/', variables('VMNamePrefix'),variables('AvailabilitySetName'))]"
       ],
       "copy": {
         "name": "VMLoop",
@@ -137,7 +137,7 @@
       },
       "properties": {
         "availabilitySet": {
-          "id": "[resourceId('Microsoft.Compute/availabilitySets',variables('AvailabilitySetName'))]"
+          "id": "[resourceId('Microsoft.Compute/availabilitySets',variables('VMNamePrefix'),variables('AvailabilitySetName'))]"
         },
         "hardwareProfile": {
           "vmSize": "[parameters('VM Size')]"
@@ -191,7 +191,7 @@
         "autoUpgradeMinorVersion": true,
         "settings": {
           "fileUris": [
-            "https://raw.githubusercontent.com/kazumihirose/go-ethereum-on-ubuntu-private/master/go-ethereum-on-ubuntu/UploadBlobs/configure-geth-1stnode.sh"
+            "https://raw.githubusercontent.com/kazumihirose/go-ethereum-on-ubuntu-private/master/go-ethereum-on-ubuntu/UploadBlobs/configure-geth.sh"
           ],
           "commandToExecute": "[concat('sh configure-geth.sh ', parameters('Admin Name'))]"
         }

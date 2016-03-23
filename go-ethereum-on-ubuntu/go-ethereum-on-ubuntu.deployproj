@@ -33,12 +33,10 @@
       <Visible>False</Visible>
     </None>
     <Content Include="Scripts\Deploy-AzureResourceGroup.ps1" />
-    <Content Include="Templates\azuredeploy-1stnode.json" />
-    <Content Include="Templates\azuredeploy-othernode.json" />
+    <Content Include="Templates\azuredeploy.json" />
     <Content Include="Templates\azuredeploy.parameters.json" />
     <None Include="README.md" />
-    <None Include="UploadBlobs\configure-geth-othernode.sh" />
-    <None Include="UploadBlobs\configure-geth-1stnode.sh" />
+    <None Include="UploadBlobs\configure-geth.sh" />
     <None Include="UploadBlobs\genesis.json" />
     <None Include="UploadBlobs\GuestBook.sol" />
     <None Include="UploadBlobs\priv_genesis.key" />
