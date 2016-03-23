@@ -43,10 +43,17 @@ time sudo apt-get install solc -y
 
 # Fetch Genesis and Private Key
 cd $HOMEDIR
-wget https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/go-ethereum-on-ubuntu/genesis.json
-wget https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/go-ethereum-on-ubuntu/priv_genesis.key
-wget https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/go-ethereum-on-ubuntu/start-private-blockchain.sh
-wget https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/go-ethereum-on-ubuntu/GuestBook.sol
+wget https://raw.githubusercontent.com/kazumihirose/go-ethereum-on-ubuntu-private/master/go-ethereum-on-ubuntu/UploadBlobs/genesis.json
+wget https://raw.githubusercontent.com/kazumihirose/go-ethereum-on-ubuntu-private/master/go-ethereum-on-ubuntu/UploadBlobs/priv_genesis.key
+wget https://raw.githubusercontent.com/kazumihirose/go-ethereum-on-ubuntu-private/master/go-ethereum-on-ubuntu/UploadBlobs/GuestBook.sol
+wget https://raw.githubusercontent.com/kazumihirose/go-ethereum-on-ubuntu-private/master/go-ethereum-on-ubuntu/UploadBlobs/geth.conf
+
+# Copy upstart file
+cp geth.conf /etc/init/geth.conf
+
+# booting geth
+initctl start geth
 
 date
 echo "completed geth install $$"
+
